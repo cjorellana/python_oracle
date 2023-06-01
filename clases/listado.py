@@ -11,3 +11,5 @@ db = OracleDatabase('localhost', '1521', 'XE', 'hr', 'hr')
 result = db.listado_pais()
 for row in result:
     print(row)
+
+db.close()
