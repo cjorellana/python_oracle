@@ -12,7 +12,7 @@ for row in result:
 
 db.close()
 
-print(type(lista))
+#print(type(lista))
 
 for fila in lista:
     print(fila[0])
