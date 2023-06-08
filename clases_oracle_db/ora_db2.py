@@ -15,6 +15,16 @@ class OracleDatabase:
         self.cursor.callproc(stored_procedure, [output])
         result = output.getvalue()
         return result
+    
+    def listado_pais_x_region(self,p_region_id):
+        stored_procedure = "SEL_PAIS_X_REGION"
+        
+        # Crear el parámetro de salida
+        retval = self.cursor.var(oracledb.CURSOR)
+
+        self.cursor.callproc(stored_procedure, [p_region_id, retval])
+        result = retval.getvalue().fetchall()
+        return result
 
     def close(self):
         self.cursor.close()
